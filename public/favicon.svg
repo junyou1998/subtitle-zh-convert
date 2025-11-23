@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect x="32" y="32" width="448" height="448" rx="128" ry="128" fill="url(#grad)" />
+  <path d="M256 112c-8.8 0-16 7.2-16 16v32H144c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h96v64h-96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h96v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h96c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-96v-64h96c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H272v-32c0-8.8-7.2-16-16-16h-32z" fill="white" opacity="0.2"/>
+  <path d="M256 120c-70.7 0-128 57.3-128 128 0 70.7 57.3 128 128 128 70.7 0 128-57.3 128-128 0-70.7-57.3-128-128-128zm0 224c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z" fill="white" opacity="0.1"/>
+  <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="280" font-weight="bold" fill="white" text-anchor="middle" dy=".35em">文</text>
+</svg>
