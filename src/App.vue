@@ -187,7 +187,7 @@ onMounted(() => {
     class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8 transition-colors duration-200">
     <div class="max-w-4xl mx-auto space-y-8">
       <!-- Header -->
-      <header class="flex items-center justify-between">
+      <header class="flex items-center justify-between flex-wrap gap-4">
         <div class="flex items-center gap-3">
           <div class="p-2 bg-blue-500/20 rounded-lg">
             <Activity class="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -198,7 +198,7 @@ onMounted(() => {
           </h1>
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4 justify-end flex-1">
           <!-- GitHub Link -->
           <a href="https://github.com/junyou1998/subtitle-zh-convert" target="_blank"
             class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors cursor-pointer"
