@@ -19,7 +19,12 @@ export function useZhConvert() {
     isChecking.value = true;
     error.value = null;
     try {
-      const response = await axios.get(`${API_BASE_URL}/service-info`);
+      const response = await axios.get(`${API_BASE_URL}/service-info`, {
+        withCredentials: false,
+        headers: {
+          'Accept': 'application/json',
+        }
+      });
       if (response.data && response.data.code === 0) {
         isConnected.value = true;
         serviceInfo.value = response.data.data;
@@ -29,7 +34,8 @@ export function useZhConvert() {
       }
     } catch (err: any) {
       isConnected.value = false;
-      error.value = err.message || 'Network error';
+      error.value = err.response?.data?.msg || err.message || 'Connection failed';
+      console.error('API Connection Error:', err);
     } finally {
       isChecking.value = false;
     }
@@ -47,7 +53,12 @@ export function useZhConvert() {
         payload.modules = JSON.stringify(options.modules);
       }
 
-      const response = await axios.post(`${API_BASE_URL}/convert`, payload);
+      const response = await axios.post(`${API_BASE_URL}/convert`, payload, {
+        withCredentials: false,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
 
       if (response.data && response.data.code === 0) {
         return response.data.data.text;
@@ -73,7 +84,12 @@ export function useZhConvert() {
         payload.modules = JSON.stringify(options.modules);
       }
 
-      const response = await axios.post(`${API_BASE_URL}/convert`, payload);
+      const response = await axios.post(`${API_BASE_URL}/convert`, payload, {
+        withCredentials: false,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
 
       if (response.data && response.data.code === 0) {
         return response.data.data.diff;
