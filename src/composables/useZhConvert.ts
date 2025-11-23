@@ -1,7 +1,8 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://api.zhconvert.org';
+// Use relative path for API proxy in production, direct API in development
+const API_BASE_URL = import.meta.env.DEV ? 'https://api.zhconvert.org' : '/api';
 
 export interface ServiceInfo {
   converters: Record<string, any>;
