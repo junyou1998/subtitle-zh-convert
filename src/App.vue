@@ -109,7 +109,7 @@ const downloadSelected = async () => {
   const filesToDownload = selectedFiles.value.filter(f => f.status === 'success' && f.convertedContent);
   if (filesToDownload.length === 0) return;
 
-  if (filesToDownload.length === 1) {
+  if (filesToDownload.length === 1 && filesToDownload[0]) {
     downloadFile(filesToDownload[0].id);
     return;
   }
@@ -308,10 +308,8 @@ onMounted(() => {
       <SettingsModal :is-open="showSettings" v-model:settings="settings" :converters="serviceInfo?.converters || {}"
         :modules="serviceInfo?.modules || {}" @close="showSettings = false" />
 
-      <DiffModal :is-open="showDiff" :original-text="currentDiffFile?.original || ''"
-        :converted-text="currentDiffFile?.converted || ''" :diff-html="currentDiffFile?.diff || null"
-        :is-loading="isDiffLoading" @close="showDiff = false"
-        @refresh="currentDiffFile && fetchDiff(currentDiffFile.original)" />
+      <DiffModal :is-open="showDiff" :diff-html="currentDiffFile?.diff || null" :is-loading="isDiffLoading"
+        @close="showDiff = false" @refresh="currentDiffFile && fetchDiff(currentDiffFile.original)" />
 
       <DisclaimerModal :is-open="showDisclaimer" @close="showDisclaimer = false" />
 

@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
 import { X, RefreshCw } from 'lucide-vue-next';
 
-const props = defineProps<{
+defineProps<{
     isOpen: boolean;
-    originalText: string;
-    convertedText: string;
     diffHtml: string | null;
     isLoading: boolean;
 }>();

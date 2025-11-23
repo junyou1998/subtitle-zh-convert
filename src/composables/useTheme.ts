@@ -1,4 +1,4 @@
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -32,7 +32,10 @@ export function useTheme() {
     const modes: Theme[] = ['light', 'dark', 'system'];
     const currentIndex = modes.indexOf(theme.value);
     const nextIndex = (currentIndex + 1) % modes.length;
-    setTheme(modes[nextIndex]);
+    const nextTheme = modes[nextIndex];
+    if (nextTheme) {
+      setTheme(nextTheme);
+    }
   };
 
   const handleSystemChange = () => {
