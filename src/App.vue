@@ -16,7 +16,7 @@ const { isConnected, isChecking, checkConnection, convertSubtitle, getDiff, serv
 const { addFiles, selectedFiles, updateFileStatus, files } = useSubtitleList();
 const { theme, cycleTheme } = useTheme();
 import { ref, computed } from 'vue';
-import { Play, Download, Settings, Moon, Sun, Monitor, HelpCircle } from 'lucide-vue-next';
+import { Play, Download, Settings, Moon, Sun, Monitor, HelpCircle, Github } from 'lucide-vue-next';
 
 import JSZip from 'jszip';
 
@@ -199,6 +199,13 @@ onMounted(() => {
         </div>
 
         <div class="flex items-center gap-4">
+          <!-- GitHub Link -->
+          <a href="https://github.com/junyou1998/subtitle-zh-convert" target="_blank"
+            class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+            title="GitHub 儲存庫">
+            <Github class="w-5 h-5" />
+          </a>
+
           <!-- Disclaimer/Help Button -->
           <button @click="showDisclaimer = true"
             class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors cursor-pointer"

@@ -1,6 +1,10 @@
 # ZhConvert 字幕轉換器 (ZhConvert Subtitle Converter)
 
+[![Deploy](https://img.shields.io/badge/Deploy-zhconvert.junyou.tw-blue?style=flat-square&logo=vercel)](https://zhconvert.junyou.tw)
+
 這是一個基於 [繁化姬 (ZhConvert)](https://zhconvert.org) API 開發的純前端字幕轉換工具。旨在提供一個現代化、直覺且便捷的介面，協助使用者批次將字幕檔案進行繁簡轉換與本地化處理。
+
+🔗 **線上使用**：[https://zhconvert.junyou.tw](https://zhconvert.junyou.tw)
 
 ## ✨ 主要功能
 
