@@ -1,6 +1,6 @@
 # ZhConvert 字幕轉換器 (ZhConvert Subtitle Converter)
 
-[![Deploy](https://img.shields.io/badge/Deploy-zhconvert.junyou.tw-blue?style=flat-square&logo=vercel)](https://zhconvert.junyou.tw)
+[![Deploy](https://img.shields.io/badge/Deploy-zhconvert.junyou.tw-blue?style=flat-square&logo=cloudflare-pages)](https://zhconvert.junyou.tw)
 
 這是一個基於 [繁化姬 (ZhConvert)](https://zhconvert.org) API 開發的純前端字幕轉換工具。旨在提供一個現代化、直覺且便捷的介面，協助使用者批次將字幕檔案進行繁簡轉換與本地化處理。
 
@@ -17,7 +17,7 @@
 *   **深色/淺色模式**：支援系統跟隨、深色與淺色主題切換，提供舒適的閱讀體驗。
 *   **純前端處理**：所有檔案操作皆在瀏覽器端完成，不會將您的檔案儲存至我們的伺服器。
 
-## �️ 技術棧
+## 🛠️ 使用技術
 
 本專案採用以下現代化前端技術構建：
 
@@ -28,7 +28,7 @@
 *   **檔案處理**：[JSZip](https://stuk.github.io/jszip/) (用於批次打包下載)
 *   **圖示庫**：[Lucide Vue](https://lucide.dev/)
 
-## �🚀 操作說明
+## 🚀 操作說明
 
 1.  **上傳檔案**：
     *   將您的 `.ass` 或 `.srt` 字幕檔拖曳至主畫面的上傳區，或點擊上傳區選擇檔案。
@@ -57,6 +57,12 @@
 5.  **權利主張**：若本服務有任何內容侵犯了您的權益、違反使用規範、或有任何使用不當與冒犯之處，請立即來信告知。收到通知後，我們將立即進行審視，並在必要時配合修正或下架相關工具。
 
 **聯絡信箱**：[junyou1998@gmail.com](mailto:junyou1998@gmail.com)
+
+## ☕ 贊助開發
+
+如果您覺得這個工具對您有幫助，歡迎贊助我一杯咖啡，這將成為我持續開發與維護的動力！
+
+<a href="https://www.buymeacoffee.com/junyou" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ---
 *本專案秉持著感恩與尊敬的心態開發，希望能為社群提供便利。*

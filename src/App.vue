@@ -16,7 +16,7 @@ const { isConnected, isChecking, checkConnection, convertSubtitle, getDiff, serv
 const { addFiles, selectedFiles, updateFileStatus, files } = useSubtitleList();
 const { theme, cycleTheme } = useTheme();
 import { ref, computed } from 'vue';
-import { Play, Download, Settings, Moon, Sun, Monitor, HelpCircle, Github } from 'lucide-vue-next';
+import { Play, Download, Settings, Moon, Sun, Monitor, HelpCircle, Github, Coffee, Heart } from 'lucide-vue-next';
 
 import JSZip from 'jszip';
 
@@ -184,10 +184,10 @@ onMounted(() => {
 
 <template>
   <div
-    class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8 transition-colors duration-200">
-    <div class="max-w-4xl mx-auto space-y-8">
+    class="h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 overflow-hidden">
+    <div class="flex-1 flex flex-col max-w-4xl mx-auto w-full p-8 h-full">
       <!-- Header -->
-      <header class="flex items-center justify-between flex-wrap gap-4">
+      <header class="flex-none flex items-center justify-between flex-wrap gap-4 mb-8">
         <div class="flex items-center gap-3">
           <div class="p-2 bg-blue-500/20 rounded-lg">
             <Activity class="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -237,7 +237,7 @@ onMounted(() => {
       </header>
 
       <!-- Main Content -->
-      <main class="space-y-6">
+      <main class="flex-1 overflow-y-auto min-h-0 space-y-6 pr-2">
         <FileUploader @files-selected="handleFilesSelected" />
 
         <!-- Basic Settings -->
@@ -264,13 +264,20 @@ onMounted(() => {
             </select>
           </div>
 
-          <!-- Filename Conversion -->
-          <div class="flex items-end pb-2">
-            <label class="flex items-center gap-2 cursor-pointer">
+          <!-- Filename Conversion & Advanced Settings -->
+          <div class="flex items-end justify-between pb-0.5">
+            <label class="flex items-center gap-2 cursor-pointer mb-2">
               <input type="checkbox" v-model="settings.convertFilename"
                 class="w-5 h-5 rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-blue-600 focus:ring-blue-500/50">
               <span class="text-sm font-medium text-gray-700 dark:text-gray-300">轉換檔名</span>
             </label>
+
+            <button @click="showSettings = true"
+              class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer"
+              title="進階設定">
+              <Settings class="w-5 h-5" />
+              <span>進階設定</span>
+            </button>
           </div>
         </div>
 
@@ -290,14 +297,7 @@ onMounted(() => {
             </button>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button @click="showSettings = true"
-              class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer"
-              title="進階設定">
-              <Settings class="w-5 h-5" />
-              <span>進階設定</span>
-            </button>
-          </div>
+
         </div>
 
         <FileList @download-file="downloadFile" @compare-file="handleCompareFile" />
@@ -314,13 +314,35 @@ onMounted(() => {
       <DisclaimerModal :is-open="showDisclaimer" @close="showDisclaimer = false" />
 
       <!-- Footer -->
-      <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400">
-        <p class="mb-2">Powered by <a href="https://zhconvert.org" target="_blank"
-            class="text-blue-600 dark:text-blue-400 hover:underline">ZhConvert 繁化姬</a></p>
-        <button @click="showDisclaimer = true"
-          class="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline cursor-pointer">
-          免責聲明與使用條款
-        </button>
+      <footer class="flex-none py-8 text-center space-y-6 mt-auto">
+        <!-- Donation Section -->
+        <div class="flex flex-col items-center gap-3">
+          <p class="text-sm text-gray-500 dark:text-gray-400">覺得這個工具很有幫助？</p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <!-- Developer Donation -->
+            <a href="https://www.buymeacoffee.com/junyou" target="_blank"
+              class="flex items-center gap-2 px-4 py-2 bg-[#FFDD00] hover:bg-[#FFDD00]/90 text-gray-900 rounded-full font-medium transition-colors shadow-sm hover:shadow-md">
+              <Coffee class="w-4 h-4" />
+              <span>請開發者喝杯咖啡</span>
+            </a>
+
+            <!-- ZhConvert Support -->
+            <a href="https://zhconvert.org" target="_blank"
+              class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-full font-medium transition-colors shadow-sm hover:shadow-md">
+              <Heart class="w-4 h-4 text-red-500" />
+              <span>支持繁化姬 (API 來源)</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+          <p>Powered by <a href="https://zhconvert.org" target="_blank"
+              class="text-blue-600 dark:text-blue-400 hover:underline">ZhConvert 繁化姬</a></p>
+          <button @click="showDisclaimer = true"
+            class="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 underline cursor-pointer">
+            免責聲明與使用條款
+          </button>
+        </div>
       </footer>
     </div>
   </div>
