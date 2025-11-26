@@ -11,6 +11,7 @@ import SettingsModal from './components/SettingsModal.vue';
 import DiffModal from './components/DiffModal.vue';
 import DisclaimerModal from './components/DisclaimerModal.vue';
 import HelpSection from './components/HelpSection.vue';
+import PWAInstallPrompt from './components/PWAInstallPrompt.vue';
 
 const { isConnected, isChecking, checkConnection, convertSubtitle, getDiff, serviceInfo } = useZhConvert();
 const { addFiles, selectedFiles, updateFileStatus, files } = useSubtitleList();
@@ -184,8 +185,8 @@ onMounted(() => {
 
 <template>
   <div
-    class="h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 overflow-hidden">
-    <div class="flex-1 flex flex-col max-w-4xl mx-auto w-full p-8 h-full">
+    class="h-screen overflow-y-auto bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <div class="min-h-full flex flex-col max-w-4xl mx-auto w-full p-8 gap-4">
       <!-- Header -->
       <header class="flex-none flex items-center justify-between flex-wrap gap-4 mb-8">
         <div class="flex items-center gap-3">
@@ -237,7 +238,7 @@ onMounted(() => {
       </header>
 
       <!-- Main Content -->
-      <main class="flex-1 overflow-y-auto min-h-0 space-y-6 pr-2">
+      <main class="flex-1 space-y-6">
         <FileUploader @files-selected="handleFilesSelected" />
 
         <!-- Basic Settings -->
@@ -265,7 +266,7 @@ onMounted(() => {
           </div>
 
           <!-- Filename Conversion & Advanced Settings -->
-          <div class="flex items-end justify-between pb-0.5">
+          <div class="flex items-end justify-between gap-4 pb-0.5">
             <label class="flex items-center gap-2 cursor-pointer mb-2">
               <input type="checkbox" v-model="settings.convertFilename"
                 class="w-5 h-5 rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-blue-600 focus:ring-blue-500/50">
@@ -312,9 +313,10 @@ onMounted(() => {
         @close="showDiff = false" @refresh="currentDiffFile && fetchDiff(currentDiffFile.original)" />
 
       <DisclaimerModal :is-open="showDisclaimer" @close="showDisclaimer = false" />
+      <PWAInstallPrompt />
 
       <!-- Footer -->
-      <footer class="flex-none py-8 text-center space-y-6 mt-auto">
+      <footer class="flex-none text-center space-y-6 mt-auto">
         <!-- Donation Section -->
         <div class="flex flex-col items-center gap-3">
           <p class="text-sm text-gray-500 dark:text-gray-400">覺得這個工具很有幫助？</p>

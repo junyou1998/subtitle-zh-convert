@@ -2,6 +2,15 @@
   "name": "subtitle",
   "private": true,
   "version": "0.0.0",
+  "description": "ZhConvert 字幕轉換器 - 基於繁化姬 API 的純前端字幕轉換工具",
+  "author": "Junyou <junyou1998@gmail.com>",
+  "keywords": [
+    "subtitle",
+    "converter",
+    "zhconvert",
+    "繁化姬",
+    "字幕轉換"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,6 +31,7 @@
     "@vue/tsconfig": "^0.8.1",
     "typescript": "~5.9.3",
     "vite": "^6.4.1",
+    "vite-plugin-pwa": "^1.1.0",
     "vue-tsc": "^3.1.4"
   }
 }
