@@ -74,7 +74,7 @@ const getStatusColor = (status: string) => {
           </div>
         </div>
 
-        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div class="flex items-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
           <button v-if="file.status === 'success'" @click="emit('compare-file', file.id)"
             class="p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
             title="差異比較">

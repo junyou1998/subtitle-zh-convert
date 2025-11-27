@@ -17,7 +17,7 @@ const { isConnected, isChecking, checkConnection, convertSubtitle, getDiff, serv
 const { addFiles, selectedFiles, updateFileStatus, files } = useSubtitleList();
 const { theme, cycleTheme } = useTheme();
 import { ref, computed } from 'vue';
-import { Play, Download, Settings, Moon, Sun, Monitor, HelpCircle, Github, Coffee, Heart } from 'lucide-vue-next';
+import { Play, Download, Settings, Moon, Sun, Monitor, HelpCircle, Github, Coffee, Heart, ChevronDown } from 'lucide-vue-next';
 
 import JSZip from 'jszip';
 
@@ -246,23 +246,31 @@ onMounted(() => {
           <!-- Converter Selection -->
           <div class="space-y-2">
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">轉換模式</label>
-            <select v-model="settings.converter"
-              class="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors">
-              <option v-for="(info, key) in serviceInfo?.converters || {}" :key="key" :value="key">
-                {{ info.name }} ({{ info.desc }})
-              </option>
-            </select>
+            <div class="relative">
+              <select v-model="settings.converter"
+                class="w-full pl-3 pr-10 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors appearance-none">
+                <option v-for="(info, key) in serviceInfo?.converters || {}" :key="key" :value="key">
+                  {{ info.name }} ({{ info.desc }})
+                </option>
+              </select>
+              <ChevronDown
+                class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+            </div>
           </div>
 
           <!-- Japanese Text Style -->
           <div class="space-y-2">
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">日文處理策略</label>
-            <select v-model="settings.jpTextStyles"
-              class="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors">
-              <option v-for="style in jpStyles" :key="style.value" :value="style.value">
-                {{ style.label }}
-              </option>
-            </select>
+            <div class="relative">
+              <select v-model="settings.jpTextStyles"
+                class="w-full pl-3 pr-10 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors appearance-none">
+                <option v-for="style in jpStyles" :key="style.value" :value="style.value">
+                  {{ style.label }}
+                </option>
+              </select>
+              <ChevronDown
+                class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+            </div>
           </div>
 
           <!-- Filename Conversion & Advanced Settings -->
